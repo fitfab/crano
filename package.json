@@ -4,7 +4,7 @@
   "description": "setup reactjs with expressjs ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\""
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/fitfab/crano/issues"
   },
-  "homepage": "https://github.com/fitfab/crano#readme"
+  "homepage": "https://github.com/fitfab/crano#readme",
+  "devDependencies": {
+    "concurrently": "3.5.0"
+  }
 }
