@@ -1,3 +1,4 @@
+import path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
 
@@ -7,14 +8,21 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 const router = express.Router()
+
+// get reference to the client build directory
+const staticFiles = express.static(path.join(__dirname, '../../client/build'))
+
+// pass the static files (react app) to the express app.
+app.use(staticFiles)
+
 router.get('/users', (req, res) => {
-  const cities = [
+  const users = [
     {firstName: 'John', lastName: 'Smith'},
     {firstName: 'Lory', lastName: 'Munoz'},
     {firstName: 'Zelma', lastName: 'Yugar'},
     {firstName: 'Miguel', lastName: 'Julio'},
   ]
-  res.json(cities)
+  res.json(users)
 })
 app.use(router)
 app.set('port', (process.env.PORT || 3001))

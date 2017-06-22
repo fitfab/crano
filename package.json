@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "install": "(cd client && npm install) && (cd server && npm install)",
-    "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\""
+    "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
+    "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\"",
+    "start:prod": "cd server && npm run start:prod"
   },
   "repository": {
     "type": "git",
