@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "setup reactjs with expressjs ",
   "main": "index.js",
+  "engines": {
+    "node": "7.9.0"
+  },
   "scripts": {
     "install": "(cd client && npm install) && (cd server && npm install)",
     "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
     "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\"",
-    "start:prod": "cd server && npm run start:prod"
+    "start:prod": "cd server && npm run start:prod",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
