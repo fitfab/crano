@@ -8,7 +8,7 @@
     "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
     "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\"",
     "start:prod": "cd server && npm run start:prod",
-    "docker:local": "docker run -p 49160:9000 -d --name crano fitfab/crano"
+    "docker:local": "docker run --rm -it -p 49160:9000 -d --name crano fitfab/crano"
   },
   "repository": {
     "type": "git",

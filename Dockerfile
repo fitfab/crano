@@ -11,10 +11,10 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-# Build and optimize react app
+# Build and optimize react app and server
 RUN npm run build
 
 EXPOSE 9000
 
-# defined in package.json
+# Rund command defined in package.json
 CMD [ "npm", "run", "start:prod" ]
