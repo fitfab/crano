@@ -1,0 +1,10 @@
+[
+    {
+        "lastName": {
+            "el":"input",
+            "type": "text",
+            "required": true,
+             
+        }
+    }
+]
