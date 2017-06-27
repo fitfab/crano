@@ -1,0 +1,225 @@
+{
+  "consumer": {
+    "name": "Matching CMS"
+  },
+  "provider": {
+    "name": "Global Header Service"
+  },
+  "interactions": [
+    {
+      "description": "a request for Navigation",
+      "provider_state": "I have a list of global Navigation",
+      "request": {
+        "method": "GET",
+        "path": "/api/global/navigation",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "href": "/",
+            "title": "Artnet.com",
+            "media": "/media/redesign/img/logo_brand.svg"
+          },
+          {
+            "href": "/search",
+            "title": "Search",
+            "media": null
+          },
+          {
+            "href": "/auctions/",
+            "title": "Auctions",
+            "media": null
+          },
+          {
+            "href": "/artists/",
+            "title": "Artists",
+            "media": null
+          },
+          {
+            "href": "/auctions/",
+            "title": "Galleries",
+            "media": null
+          },
+          {
+            "href": "/auctions-houses/",
+            "title": "Auctions Houeses",
+            "media": null
+          },
+          {
+            "href": "/events/",
+            "title": "Events",
+            "media": null
+          },
+          {
+            "href": "/news/",
+            "title": "News",
+            "media": null
+          },
+          {
+            "href": "/login/",
+            "title": "Log In",
+            "media": null
+          }
+        ]
+      }
+    },
+    {
+      "description": "a request for navigation with a filter",
+      "provider_state": "I have a list of navigation",
+      "request": {
+        "method": "GET",
+        "path": "/api/global/navigation",
+        "query": {
+          "from": "today"
+        },
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "href": "/",
+            "title": "Artnet.com",
+            "media": "/media/redesign/img/logo_brand.svg"
+          },
+          {
+            "href": "/search",
+            "title": "Search",
+            "media": null
+          },
+          {
+            "href": "/auctions/",
+            "title": "Auctions",
+            "media": null
+          },
+          {
+            "href": "/artists/",
+            "title": "Artists",
+            "media": null
+          },
+          {
+            "href": "/auctions/",
+            "title": "Galleries",
+            "media": null
+          },
+          {
+            "href": "/auctions-houses/",
+            "title": "Auctions Houeses",
+            "media": null
+          },
+          {
+            "href": "/events/",
+            "title": "Events",
+            "media": null
+          },
+          {
+            "href": "/news/",
+            "title": "News",
+            "media": null
+          },
+          {
+            "href": "/login/",
+            "title": "Log In",
+            "media": null
+          }
+        ]
+      }
+    },
+    {
+      "description": "a request for Navigation",
+      "provider_state": "I have a list of Navigation",
+      "request": {
+        "method": "GET",
+        "path": "/api/global/navigation",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "href": "/",
+            "title": "Artnet.com",
+            "media": "/media/redesign/img/logo_brand.svg"
+          },
+          {
+            "href": "/search",
+            "title": "Search",
+            "media": null
+          },
+          {
+            "href": "/auctions/",
+            "title": "Auctions",
+            "media": null
+          },
+          {
+            "href": "/artists/",
+            "title": "Artists",
+            "media": null
+          },
+          {
+            "href": "/auctions/",
+            "title": "Galleries",
+            "media": null
+          },
+          {
+            "href": "/auctions-houses/",
+            "title": "Auctions Houeses",
+            "media": null
+          },
+          {
+            "href": "/events/",
+            "title": "Events",
+            "media": null
+          },
+          {
+            "href": "/news/",
+            "title": "News",
+            "media": null
+          },
+          {
+            "href": "/login/",
+            "title": "Log In",
+            "media": null
+          }
+        ]
+      }
+    },
+    {
+      "description": "a request for a navigation that does not exist",
+      "provider_state": "I have a list of Navigation",
+      "request": {
+        "method": "GET",
+        "path": "/api/global/navigation/2",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "2.0.0"
+  }
+}
