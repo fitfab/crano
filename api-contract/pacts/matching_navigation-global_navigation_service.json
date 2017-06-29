@@ -1,9 +1,9 @@
 {
   "consumer": {
-    "name": "Matching CMS"
+    "name": "Matching Navigation"
   },
   "provider": {
-    "name": "Global Header Service"
+    "name": "Global Navigation Service"
   },
   "interactions": [
     {

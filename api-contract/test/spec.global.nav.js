@@ -23,8 +23,8 @@ describe('Integration', () => {
         const PROVIDER_URL = `${PROTOCOL}://localhost:${MOCK_PORT}`
 
         const provider = mockProvider({
-            consumer: 'Matching CMS',
-            provider: 'Global Header Service',
+            consumer: 'Matching Navigation',
+            provider: 'Global Navigation Service',
             port : MOCK_PORT,
             PROTOCOL
         })

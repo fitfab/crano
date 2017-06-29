@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 class App extends Component {
 
     // Initialize state here (ES7)
@@ -11,9 +12,8 @@ class App extends Component {
 
     // using async/await (ES7)
     async componentDidMount() {
-        const res = await fetch('/users');
-        const users = await res.json();
-
+        const { fetchIt } = this.props
+        const users = await fetchIt('/users');
         this.setState({users})
     }
 
@@ -25,8 +25,8 @@ class App extends Component {
                     <h2>Welcome to React</h2>
                 </div>
                 <div>
-                    {this.state.users.map( user => {
-                        return <p key={user.firstName}> <b>{user.firstName}</b> {user.lastName}</p>
+                    {this.state.users.map( (user, index, arr) => {
+                        return <p key={index}> <b>{user.firstName}</b> {user.lastName}</p>
                     })}
                 </div>
             </div>
