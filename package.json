@@ -4,10 +4,11 @@
   "description": "setup reactjs with expressjs ",
   "main": "index.js",
   "scripts": {
-    "install": "(cd client && npm install) && (cd server && npm install)",
+    "install": "(cd client && npm install) && (cd server && npm install) && (cd api-contract && npm install) ",
     "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
     "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\"",
-    "start:prod": "cd server && npm run start:prod"
+    "start:prod": "cd server && npm run start:prod",
+    "pact:test": "(cd api-contract && npm run test)"
   },
   "repository": {
     "type": "git",

@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 class App extends Component {
 
     // Initialize state here (ES7)
     state = {
-        users: []
+        nav: []
     }
 
     // using async/await (ES7)
     async componentDidMount() {
-        const res = await fetch('/users');
-        const users = await res.json();
-
-        this.setState({users})
+        const { fetchIt } = this.props
+        const nav = await fetchIt('/api/global/navigation');
+        this.setState({nav})
     }
 
     render() {
@@ -22,13 +22,13 @@ class App extends Component {
             <div className="App">
                 <div className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <h2>Welcome to React</h2>
+                    <nav>
+                        {this.state.nav.map( (item, index, arr) => {
+                            return <a key={index} href={item.href}>{item.title}</a>
+                        })}
+                    </nav>
                 </div>
-                <div>
-                    {this.state.users.map( user => {
-                        return <p key={user.firstName}> <b>{user.firstName}</b> {user.lastName}</p>
-                    })}
-                </div>
+
             </div>
         );
     }

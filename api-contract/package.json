@@ -1,0 +1,25 @@
+{
+  "name": "pact-contract",
+  "version": "1.0.0",
+  "description": "Testing Pact.io",
+  "main": "index.js",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "bluebird": "3.5.0",
+    "chai": "3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "3.3.0",
+    "pact": "2.3.4",
+    "superagent": "3.5.2"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --require babel-polyfill -- recursive test/spec.*.js"
+  },
+  "keywords": [
+    "pact"
+  ],
+  "author": "Miguel Julio <miguel.julio.developer@gmail.com> (http://fitfab.com/)",
+  "license": "MIT"
+}
