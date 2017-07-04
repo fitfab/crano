@@ -1,0 +1,28 @@
+input {
+    border-radius: 20px;
+    border: 1px solid #666;
+    background: #fff;
+    padding: 5px 10px;
+}
+
+input[type=submit] {
+    margin-left: 140px;
+}
+
+label {
+    display: inline-block;
+    margin-right: 20px;
+    width: 120px;
+    text-align: left;
+}
+
+.field {
+    margin: 0 auto 20px;
+    text-align: left;
+    width: 60%;
+
+}
+
+form {
+    overflow: hidden;
+}
