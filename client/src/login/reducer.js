@@ -7,7 +7,10 @@ import {
 const initialState = {
     errors: null,
     isFetching: false,
-    user: null,
+    user: {
+        userName: 'Miguel',
+        password: 'one2one'
+    },
 }
 
 export default (state = initialState, action) => {

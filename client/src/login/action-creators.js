@@ -25,6 +25,8 @@ function requestSuccess(payload) {
  */
 export function loginUser(user) {
 
+    console.log('loginUser: ', user)
+
     // Thunk middleware knows how to handle functions.
     // It passes the dispatch method as an argument to the function,
     // thus making it able to dispatch actions itself.
