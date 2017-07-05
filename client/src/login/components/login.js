@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import LoginReduxForm from './login-form'
 import '../login.css';
+
 export default class Login extends Component {
 
     static propTypes = {

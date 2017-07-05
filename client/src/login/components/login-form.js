@@ -1,6 +1,9 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
+import { validate, warn } from '../validate'
+import RenderField from './renderField'
+
 
 const LoginForm = props => {
     const { handleSubmit } = props
@@ -8,14 +11,20 @@ const LoginForm = props => {
     return(
         <form onSubmit={handleSubmit}>
             <h3>Login User</h3>
-            <div className="field">
-                <label htmlFor="userName">User Name: </label>
-                <Field name="userName" component="input" type="text" />
-            </div>
-            <div className="field">
-                <label htmlFor="password">Password</label>
-                <Field name="password" component="input" type="password" />
-            </div>
+
+                <Field
+                    label="User Name:"
+                    name="userName"
+                    type="text"
+                    component={RenderField} />
+
+                <Field
+                    label="Password:"
+                    name="password"
+                    type="password"
+                    component={RenderField} />
+
+
             <div className="field">
                 <input type="submit" value="login" />
             </div>
@@ -24,7 +33,9 @@ const LoginForm = props => {
 }
 
 const LoginReduxForm = reduxForm({
-    form: 'login-form'
+    form: 'login-form',
+    validate, // Validation function given to the redux-form
+    warn // warn function
 })(LoginForm)
 
 export default LoginReduxForm;

@@ -6,7 +6,7 @@ input {
 }
 
 input[type=submit] {
-    margin-left: 140px;
+    background: #eee;
 }
 
 label {
@@ -21,6 +21,28 @@ label {
     text-align: left;
     width: 60%;
 
+}
+
+.field__input {
+    position: relative;
+}
+
+.field__input .error,
+.field__input .warning {
+    position: absolute;
+    left: 120px;
+    top: -17px;
+    background: red;
+    color: #fff;
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.field__input .warning {
+    color: #333;
+    background: #fff;
+    border: 1px solid orange;
 }
 
 form {
