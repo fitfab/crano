@@ -1,12 +1,13 @@
 input {
     border-radius: 20px;
-    border: 1px solid #666;
+    border: 1px solid #999;
     background: #fff;
     padding: 5px 10px;
 }
 
 input[type=submit] {
     background: #eee;
+    text-transform: uppercase;
 }
 
 label {
@@ -17,7 +18,7 @@ label {
 }
 
 .field {
-    margin: 0 auto 20px;
+    margin: 0 auto 40px;
     text-align: left;
     width: 60%;
 
@@ -30,19 +31,47 @@ label {
 .field__input .error,
 .field__input .warning {
     position: absolute;
-    left: 120px;
-    top: -17px;
-    background: red;
-    color: #fff;
+    left: 10px;
+    bottom: -25px;
+    color: red;
     font-size: 10px;
     padding: 5px 10px;
     border-radius: 10px;
+    border-top: 1px solid red;
+}
+
+.field__input .error:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    border-top: 1px solid red;
+    border-left: 1px solid red;
+    transform: rotate(45deg);
 }
 
 .field__input .warning {
-    color: #333;
+    color: orange;
     background: #fff;
-    border: 1px solid orange;
+    border-top: 1px solid orange;
+}
+
+.field__input .warning:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    border-top: 1px solid orange;
+    border-left: 1px solid orange;
+    transform: rotate(45deg);
 }
 
 form {

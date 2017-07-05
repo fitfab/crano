@@ -15,10 +15,6 @@ export default class Login extends Component {
         const { loginUser } = this.props.LoginActions
         console.log(values);
         loginUser(values)
-        return values => {
-            console.log(values)
-
-        }
     }
 
     render() {
