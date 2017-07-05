@@ -23,7 +23,7 @@ function requestSuccess(payload) {
 /**
  * thunk creator
  */
-export function loginUser(user) {
+export function fetchNav() {
 
     // Thunk middleware knows how to handle functions.
     // It passes the dispatch method as an argument to the function,
@@ -35,14 +35,14 @@ export function loginUser(user) {
         dispatch(requestBegin());
 
         //2nd Ajax: call to the api
-        axios.post('/', user, { timeout: 3000 })
+        axios.get('/api/global/navigation', { timeout: 3000 })
         .then((json) => {
             // Notify that we have received the data
-            dispatch(requestSuccess(json));
+            dispatch(requestSuccess(json.data));
 
-        }).catch((json) => {
+        }).catch((error) => {
             // Notify of any failure from the request
-            dispatch(requestFailed(json));
+            dispatch(requestFailed(error.response.data));
 
         });
 

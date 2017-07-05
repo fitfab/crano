@@ -7,7 +7,6 @@ import RenderField from './renderField'
 
 const LoginForm = props => {
     const { handleSubmit } = props
-    console.log('props: ',props)
     return(
         <form onSubmit={handleSubmit}>
             <h3>Login User</h3>

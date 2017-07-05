@@ -13,12 +13,10 @@ export default class Login extends Component {
 
     handleSubmit =(values) => {
         const { loginUser } = this.props.LoginActions
-        console.log(values);
         loginUser(values)
     }
 
     render() {
-        console.log(this.props);
         const { user } = this.props.Login
         return (
             <LoginReduxForm

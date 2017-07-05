@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import LoginContainer from './login/container'
+import NavContainer from './nav/container'
 
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
 
                 </div>
                 <LoginContainer />
+                <NavContainer />
             </div>
         );
     }
