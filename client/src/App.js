@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -23,19 +25,22 @@ class App extends Component {
     render() {
 
         return (
+            <BrowserRouter>
             <div className="App">
                 <div className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <nav>
                         {this.state.nav.map( (item, index, arr) => {
-                            return <a key={index} href={item.href}>{item.title}</a>
+                            return <Link key={index} to={item.href}>{item.title}</Link>
                         })}
+                        <Link to="/edit">Edit</Link>
                     </nav>
 
                 </div>
-                <LoginContainer />
-                <NavContainer />
+                <Route path="/login" component={LoginContainer} />
+                <Route path="/edit" component={NavContainer} />
             </div>
+            </BrowserRouter>
         );
     }
 }
