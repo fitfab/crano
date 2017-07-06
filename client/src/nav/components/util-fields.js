@@ -52,7 +52,7 @@ export function RenderList({ fields, meta: { touched, error } }) {
                         type="text"
                         component={RenderField} />
                     <Field
-                        label="href"
+                        label={item.href}
                         name={item.href}
                         type="text"
                         component={RenderField} />
