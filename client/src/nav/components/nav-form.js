@@ -1,8 +1,8 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { FieldArray, reduxForm } from 'redux-form'
 
-//import { validate, warn } from '../validate'
-import RenderField from './renderField'
+import { RenderList } from './util-fields'
+
 
 
 const NavForm = props => {
@@ -11,24 +11,8 @@ const NavForm = props => {
     return(
         <form onSubmit={handleSubmit}>
             <h3>Edit Navigation</h3>
-                {initialValues.map((item, index) => {
-                    console.log(item.href)
-                    return (
-                        <div key={index}>
-                            <Field
-                                label={item.title}
-                                name={item.title}
-                                type="text"
-                                component={RenderField} />
-                            <Field
-                                label={item.href}
-                                name={item.href}
-                                type="text"
-                                component={RenderField} />
-                        </div>
-                    )
-                })}
 
+                <FieldArray name="navigation" component={RenderList} {...{fields: initialValues}} />
 
             <div className="field">
                 <input type="submit" value="update" />
