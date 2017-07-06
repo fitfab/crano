@@ -39,6 +39,11 @@ nav a {
     font-size: 11px;
 }
 
+a.edit {
+    background: #2b6979;
+    color: #023f50;
+    float: right;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
