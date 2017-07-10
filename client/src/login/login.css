@@ -13,7 +13,6 @@ input[type=submit] {
 label {
     display: inline-block;
     margin-right: 20px;
-    width: 120px;
     text-align: left;
 }
 

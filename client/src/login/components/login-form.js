@@ -22,11 +22,6 @@ const LoginForm = props => {
                     name="password"
                     type="password"
                     component={RenderField} />
-                    <div>
-                      <label><Field name="magazine" component="input" type="checkbox" value="NYT"/> NYT</label>
-                      <label><Field name="magazine" component="input" type="checkbox" value="LAT"/> LAT</label>
-                    </div>
-
 
             <div className="field">
                 <input type="submit" value="login" />

@@ -7,10 +7,11 @@ import {
     ControlRadioOrCheckbox } from '../components/form'
 
 import './404.css'
+import '../components/form/form.css';
 
 export default () => (
     <div>
-        <p><b>404</b> This ain't ready kid,</p>
+        <p className="flash-message"><b>404</b> This ain't ready kid,</p>
 
         <Form handleSubmit={(data) => {  console.log('this will be a call to a redux action:',data);}}>
 
@@ -37,6 +38,14 @@ export default () => (
                 type="checkbox"
                 options={['Renovation', 'Gardening', 'Cooking', 'Dancing', 'Fitness']}
                 selectedOptions={['Renovation', 'Dancing']}
+                />
+
+            <ControlRadioOrCheckbox
+                label="Best Movie"
+                name="bestMovie"
+                type="radio"
+                options={['You and I', 'Gardening Along', 'Cooking Nowadays', 'The Sun INTI', 'Health']}
+                selectedOptions={['You and I']}
                 />
 
             <button type="submit">Save</button>

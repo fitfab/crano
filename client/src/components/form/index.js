@@ -18,7 +18,7 @@ export class Form extends Component {
         handleSubmit: func.isRequired
     }
 
-    handleCheckboxRadio(target) {
+    handleCheckbox(target) {
         const { name, value } = target;
         let newSelectionArray;
         console.log(value)
@@ -36,8 +36,8 @@ export class Form extends Component {
         let { target } = event;
         let { name, value, type } = target;
 
-        if(type === 'checkbox' || type === 'radio') {
-            this.handleCheckboxRadio(target)
+        if(type === 'checkbox') {
+            this.handleCheckbox(target)
         } else {
             this.setState({
                 [name]: value
@@ -86,7 +86,7 @@ export class Form extends Component {
 export function ControlInput(props) {
     return (
         <div className="control-input">
-            <label>{props.inputLabel}</label>
+            <label>{props.label}</label>
             <input
                 className="control-input__input"
                 name={props.name}
@@ -119,20 +119,22 @@ export function ControlSelect(props) {
     return(
         <div className="control-select">
             <label>{props.label}</label>
-            <select
-                name={props.name}
-                defaultValue={props.selectedOptions} >
-                <option value="">{props.placeholder}</option>
-                {props.options.map(opt => {
-                    return (
-                        <option
-                            key={opt}
-                            value={opt}>
-                            {opt}
-                        </option>
-                    )
-                })}
-            </select>
+            <div className="select-input">
+                <select
+                    name={props.name}
+                    defaultValue={props.selectedOptions} >
+                    <option value="">{props.placeholder}</option>
+                    {props.options.map(opt => {
+                        return (
+                            <option
+                                key={opt}
+                                value={opt}>
+                                {opt}
+                            </option>
+                        )
+                    })}
+                </select>
+            </div>
         </div>
     )
 }
