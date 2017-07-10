@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { children, func } from 'prop-types';
+import {
+    array,
+    children,
+    func,
+    number,
+    oneOf,
+    oneOfType,
+    string } from 'prop-types';
 
 export class Form extends Component {
 
@@ -11,18 +18,29 @@ export class Form extends Component {
         handleSubmit: func.isRequired
     }
 
+    handleCheckboxRadio(target) {
+        const { name, value } = target;
+        let newSelectionArray;
+        console.log(value)
+        if(this.state[name].indexOf(value) > -1) {
+            newSelectionArray = this.state[name].filter(v => v !== value)
+        } else {
+            newSelectionArray = [ ...this.state[name], value]
+        }
+        this.setState({
+            [name]:newSelectionArray
+        })
+    }
+
     handleChange = (event) => {
         let { target } = event;
         let { name, value, type } = target;
 
-        value  = type === 'checkbox' ?
-            target.checked :
-            value;
-        if(type === 'checkbox') {
-            this.state.checkboxes.push({[`${name}`]: value})
+        if(type === 'checkbox' || type === 'radio') {
+            this.handleCheckboxRadio(target)
         } else {
             this.setState({
-                [`${name}`]: value
+                [name]: value
               });
         }
 
@@ -33,40 +51,24 @@ export class Form extends Component {
         this.props.handleSubmit(this.state);
     }
 
-    componentDidMount() {
-        let name;
-        let value;
-        let stateFromProps = {};
-        let checkboxes= [];
-        let oneCheckBox;
-        const out = this.props.children.map((item) => {
+    componentWillMount() {
+        for (let child in this.props.children) {
+            let input = this.props.children[child];
 
-            if(item.props.type === 'text' || item.props.type === 'checkbox') {
-                name = item.props.name;
-                value = item.props.type === 'checkbox'? item.props.checked : item.props.defaultValue;
-                if(item.props.type === 'checkbox') {
-                    oneCheckBox = {
-                        [`${name}`]: value
-                    }
-
-                    checkboxes.push(oneCheckBox)
-                } else {
-
-                    stateFromProps[`${name}`] = value || '';
-                }
-
+            if(input.props.type === 'checkbox' || input.props.type === 'radio') {
+                this.setState({ [input.props.name]:  input.props.selectedOptions || []})
+            } else if(input.props.type === 'select one') {
+                this.setState({ [input.props.name]:  input.props.selectedOptions ||''})
+            } else if(input.props.type !== 'submit' && input.props.name){
+                this.setState({ [input.props.name]:  input.props.defaultValue || ''})
             }
-
-            stateFromProps[`checkboxes`] = checkboxes;
-            return stateFromProps;
-        })
-
-        this.setState(stateFromProps)
+        }
 
     }
 
     render() {
         const { children } = this.props
+        console.log(this.state)
         return (
             <form onSubmit={this.handleClickSubmit} onChange={this.handleChange}>
                 {children}
@@ -76,37 +78,103 @@ export class Form extends Component {
 
 }
 
-
-
-
-
-export const CHECKBOX = 'CHECKBOX';
-export const CHECKBOXES = 'CHECKBOXES';
-
-export function CheckBoxControl(key, props) {
-    console.log(key, props )
-  switch (key) {
-    case CHECKBOX:
-      return (
-        <input type="checkbox" name={props.options.name} />
-      );
-
-    case CHECKBOXES:
-      return (
-        <div>
-          {props.options.map((option, index) => (
-            <label key={index} className="checkbox">
-                {option.label}
-                <input type="checkbox"
-                    name={`${option.label}`}
-                    defaultValue={option.value}
-                    />
-            </label>
-          ))}
+/**
+ * ControlInput state maneged by the parent form
+ * @param       {object} props input required properties
+ * @constructor
+ */
+export function ControlInput(props) {
+    return (
+        <div className="control-input">
+            <label>{props.inputLabel}</label>
+            <input
+                className="control-input__input"
+                name={props.name}
+                type={props.type}
+                defaultValue={props.defaultValue}
+                placeholder={props.inputPlaceholder}
+                />
         </div>
-      );
-
-    default:
-      return null;
-  }
+    )
 }
+
+ControlInput.propTypes = {
+    type: oneOf(['text', 'number', 'email', 'password']).isRequired,
+    label: string.isRequired,
+    name: string.isRequired,
+    value: oneOfType([
+        string,
+        number
+    ]),
+    placeholder: string,
+}
+// ----------- END: ControlInput ----------- //
+
+/**
+ * ControlSelect state maneged by the parent form
+ * @param       {object} props input required properties
+ * @constructor
+ */
+export function ControlSelect(props) {
+    return(
+        <div className="control-select">
+            <label>{props.label}</label>
+            <select
+                name={props.name}
+                defaultValue={props.selectedOptions} >
+                <option value="">{props.placeholder}</option>
+                {props.options.map(opt => {
+                    return (
+                        <option
+                            key={opt}
+                            value={opt}>
+                            {opt}
+                        </option>
+                    )
+                })}
+            </select>
+        </div>
+    )
+}
+
+ControlSelect.propTypes = {
+    label: string,
+    name: string,
+    options: array.isRequired,
+    selectedOptions: string,
+    placeholder: string
+}
+
+// ----------- END: ControlSelect ----------- //
+
+export function ControlRadioOrCheckbox(props) {
+    return (
+        <div className="control-radio-checkbox">
+            <label>{props.inputLabel}</label>
+            <div className="control-input-group">
+                {props.options.map(opt => {
+                    return(
+                        <label key={opt} className="check-radio-label">
+                            <input
+                                className="check-radio-input"
+                                name={props.name}
+                                defaultValue={opt}
+                                defaultChecked={props.selectedOptions.indexOf(opt) > -1}
+                                type={props.type} /> {opt}
+                        </label>
+                    )
+                })}
+            </div>
+
+        </div>
+    )
+}
+
+ControlRadioOrCheckbox.propTypes = {
+    label: string.isRequired,
+    name: string.isRequired,
+    type: string.isRequired,
+    options: array.isRequired,
+    selectedOptions: array
+}
+// ----------- END: ControlRadioOrCheckbox ----------- //

@@ -1,28 +1,43 @@
 import React from 'react'
 
-import {Form, CheckBoxControl } from '../components/form'
+import {
+    Form,
+    ControlInput,
+    ControlSelect,
+    ControlRadioOrCheckbox } from '../components/form'
 
 import './404.css'
-const weekdayOptions = [
-  { value: 1, label: 'Monday' },
-  { value: 2, label: 'Tuesday' },
-  { value: 3, label: 'Wednesday' },
-  { value: 4, label: 'Thursday' },
-  { value: 5, label: 'Friday' },
-  { value: 6, label: 'Saturday' },
-  { value: 7, label: 'Sunday' },
-];
+
 export default () => (
     <div>
         <p><b>404</b> This ain't ready kid,</p>
 
         <Form handleSubmit={(data) => {  console.log('this will be a call to a redux action:',data);}}>
-            <input type="text" name="firstName" placeholder="First Name" />
-            <input type="text" name="lastName" placeholder="last Name" />
 
+            <ControlInput
+                label="email"
+                name="ownerEmail"
+                type="email"
+                defaultValue="miguel@mail.com"
+                placeholder="Please enter your email"
+                />
 
-            {CheckBoxControl('CHECKBOXES',{options: weekdayOptions})}
+            <ControlSelect
+                label="Weekdays"
+                name="weekdays"
+                type="select one"
+                options={['Monday', 'Tuesday', 'Thursday', 'Friday']}
+                selectedOptions="Friday"
+                placeholder="Select your weekday"
+                />
 
+            <ControlRadioOrCheckbox
+                label="Hobbies"
+                name="hobbies"
+                type="checkbox"
+                options={['Renovation', 'Gardening', 'Cooking', 'Dancing', 'Fitness']}
+                selectedOptions={['Renovation', 'Dancing']}
+                />
 
             <button type="submit">Save</button>
         </Form>
