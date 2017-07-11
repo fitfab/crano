@@ -152,7 +152,7 @@ ControlSelect.propTypes = {
 export function ControlRadioOrCheckbox(props) {
     return (
         <div className="control-radio-checkbox">
-            <label>{props.inputLabel}</label>
+            <label>{props.label}</label>
             <div className="control-input-group">
                 {props.options.map(opt => {
                     return(
@@ -162,7 +162,7 @@ export function ControlRadioOrCheckbox(props) {
                                 name={props.name}
                                 defaultValue={opt}
                                 defaultChecked={props.selectedOptions.indexOf(opt) > -1}
-                                type={props.type} /> {opt}
+                                type={props.type} /> <span>{opt}</span>
                         </label>
                     )
                 })}

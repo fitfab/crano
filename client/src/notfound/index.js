@@ -16,6 +16,7 @@ export default () => (
         <Form handleSubmit={(data) => {  console.log('this will be a call to a redux action:',data);}}>
 
             <ControlInput
+                className="custom"
                 label="email"
                 name="ownerEmail"
                 type="email"
@@ -27,7 +28,7 @@ export default () => (
                 label="Weekdays"
                 name="weekdays"
                 type="select one"
-                options={['Monday', 'Tuesday', 'Thursday', 'Friday']}
+                options={['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']}
                 selectedOptions="Friday"
                 placeholder="Select your weekday"
                 />
