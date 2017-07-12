@@ -9,7 +9,6 @@ import LoginContainer from './login/container'
 import NavContainer from './nav/container'
 import NotFound from './notfound'
 
-
 class App extends Component {
 
     // Initialize state here (ES7)
@@ -51,4 +50,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default App

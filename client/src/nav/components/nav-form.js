@@ -7,7 +7,6 @@ import { RenderList } from './util-fields'
 
 const NavForm = props => {
     const { handleSubmit, initialValues } = props
-    console.log('nav props: ',props)
     return(
         <form onSubmit={handleSubmit}>
             <h3>Edit Navigation</h3>

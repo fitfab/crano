@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import NavReduxForm from './nav-form'
 import '../nav.css';
 
-export default class Nav extends Component {
+class Nav extends Component {
 
     static propTypes = {
         NavActions: PropTypes.object.isRequired,
@@ -21,7 +21,7 @@ export default class Nav extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        return (nextProps.Nav.nav)
+        return (nextProps.Nav.nav !== null)
     }
 
 
@@ -34,3 +34,5 @@ export default class Nav extends Component {
     }
 
 }
+
+export default Nav
