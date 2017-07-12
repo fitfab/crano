@@ -25,4 +25,9 @@ router.get('*', (req, res) => {
     res.status(status).json(response.body)
 })
 
+router.post('/api/save', (req, res) => {
+    let status = 200
+    res.status(status).json(req.body)
+})
+
 export default router
