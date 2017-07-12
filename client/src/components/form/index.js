@@ -21,7 +21,6 @@ export class Form extends Component {
     handleCheckbox(target) {
         const { name, value } = target;
         let newSelectionArray;
-        console.log(value)
         if(this.state[name].indexOf(value) > -1) {
             newSelectionArray = this.state[name].filter(v => v !== value)
         } else {
@@ -51,16 +50,22 @@ export class Form extends Component {
         this.props.handleSubmit(this.state);
     }
 
+    stateFromInput(input){
+        if(input.props.type === 'checkbox' || input.props.type === 'radio') {
+            this.setState({ [input.props.name]:  input.props.selectedOptions || []})
+        } else if(input.props.type === 'select one') {
+            this.setState({ [input.props.name]:  input.props.selectedOptions ||''})
+        } else if(input.props.type !== 'submit' && input.props.name){
+            this.setState({ [input.props.name]:  input.props.defaultValue || ''})
+        }
+    }
+
+
     componentWillMount() {
         for (let child in this.props.children) {
             let input = this.props.children[child];
-
-            if(input.props.type === 'checkbox' || input.props.type === 'radio') {
-                this.setState({ [input.props.name]:  input.props.selectedOptions || []})
-            } else if(input.props.type === 'select one') {
-                this.setState({ [input.props.name]:  input.props.selectedOptions ||''})
-            } else if(input.props.type !== 'submit' && input.props.name){
-                this.setState({ [input.props.name]:  input.props.defaultValue || ''})
+            if(input.type instanceof Function || input.type === 'input') {
+                this.stateFromInput(input)
             }
         }
 
@@ -68,7 +73,7 @@ export class Form extends Component {
 
     render() {
         const { children } = this.props
-        console.log(this.state)
+
         return (
             <form onSubmit={this.handleClickSubmit} onChange={this.handleChange}>
                 {children}

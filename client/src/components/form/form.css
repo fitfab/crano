@@ -62,7 +62,10 @@ button[type="submit"]  {
     border-radius: 20px;
     border: 1px solid #999;
     background: #a4bfc7;
-    padding: 5px 10px;
+    padding: 10px 10px;
+    min-width: 100px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 input {

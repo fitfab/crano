@@ -35,7 +35,7 @@ export function loginUser(user) {
         dispatch(requestBegin());
 
         //2nd Ajax: call to the api
-        axios.post('/', user, { timeout: 3000 })
+        axios.post('/api/save', user, { timeout: 3000 })
         .then((json) => {
             // Notify that we have received the data
             dispatch(requestSuccess(json));

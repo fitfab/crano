@@ -8,6 +8,7 @@ import './App.css';
 import LoginContainer from './login/container'
 import NavContainer from './nav/container'
 import NotFound from './notfound'
+import Customform from './custom-form'
 
 class App extends Component {
 
@@ -42,6 +43,7 @@ class App extends Component {
 
                     <Route path="/login" component={LoginContainer} />
                     <Route path="/edit" component={NavContainer} />
+                    <Route path="/news" component={Customform} />
                     <Route component={NotFound} />
                 </Switch>
             </div>
