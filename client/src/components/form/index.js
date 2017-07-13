@@ -8,6 +8,37 @@ import {
     oneOfType,
     string } from 'prop-types';
 
+function getInputs(list) {
+    let out =[]
+    function loopThis(list) {
+        list.map((input) => {
+            let props, children;
+            props = input.props;
+            children = props && props.children;
+
+            if( input.constructor === Array ) {
+                loopThis(input)
+                //console.log('input is array',input);
+            } else if(input.props && input.props.children && input.props.children.constructor === Array) {
+
+                loopThis(input.props.children)
+                //console.log('input.props.chidlren is array',input.props.children)
+            }
+            console.log('props: ', props)
+            console.log('children: ', children)
+            if (input.props && input.props.constructor === Object ||
+                (input.props && input.props.children && input.props.children.constructor === Object )) {
+                //console.log('Object',input)
+                out.push(input);
+            }
+            return (input.constructor !== Array && (input.props.children && input.props.children.constructor !== String) && input);
+        })
+    }
+    loopThis(list)
+
+    console.log('out: ',out);
+}
+
 export class Form extends Component {
 
     state = {
@@ -68,6 +99,8 @@ export class Form extends Component {
                 this.stateFromInput(input)
             }
         }
+
+        getInputs(this.props.children)
 
     }
 

@@ -5,6 +5,11 @@ form {
     margin:20px;
 }
 
+.inline-input .control-input {
+    display: inline-block;
+    margin-left: 20px;
+}
+
 .control-input,
 .control-select,
 .control-radio-checkbox {
