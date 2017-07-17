@@ -52,7 +52,7 @@ class Customform extends Component {
                                 />
                             <ControlInput
                                 label="href"
-                                name={item.label}
+                                name={`${item.label}Href`}
                                 type="text"
                                 defaultValue={item.href}
                                 placeholder={`Enter href for ${item.label}`}

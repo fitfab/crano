@@ -10,33 +10,28 @@ import {
 
 function getInputs(list) {
     let out =[]
-    function loopThis(list) {
-        list.map((input) => {
+
+    function loop(list) {
+        list.filter((input) => {
             let props, children;
             props = input.props;
             children = props && props.children;
 
             if( input.constructor === Array ) {
-                loopThis(input)
-                //console.log('input is array',input);
-            } else if(input.props && input.props.children && input.props.children.constructor === Array) {
+                loop(input)
 
-                loopThis(input.props.children)
-                //console.log('input.props.chidlren is array',input.props.children)
+            } else if(props && children && children.constructor === Array) {
+                loop(input.props.children)
             }
-            console.log('props: ', props)
-            console.log('children: ', children)
-            if (input.props && input.props.constructor === Object ||
-                (input.props && input.props.children && input.props.children.constructor === Object )) {
-                //console.log('Object',input)
-                out.push(input);
+
+            if(typeof input.type !== 'string' && input.constructor !== Array) {
+                out.push(input)
             }
-            return (input.constructor !== Array && (input.props.children && input.props.children.constructor !== String) && input);
+            return input
         })
     }
-    loopThis(list)
-
-    console.log('out: ',out);
+    loop(list)
+    return out;
 }
 
 export class Form extends Component {
@@ -93,20 +88,15 @@ export class Form extends Component {
 
 
     componentWillMount() {
-        for (let child in this.props.children) {
-            let input = this.props.children[child];
-            if(input.type instanceof Function || input.type === 'input') {
+        const inputs = getInputs(this.props.children)
+        for (let child in inputs) {
+            let input = inputs[child];
                 this.stateFromInput(input)
-            }
         }
-
-        getInputs(this.props.children)
-
     }
 
     render() {
         const { children } = this.props
-
         return (
             <form onSubmit={this.handleClickSubmit} onChange={this.handleChange}>
                 {children}
