@@ -28,5 +28,8 @@
   "homepage": "https://github.com/fitfab/crano#readme",
   "devDependencies": {
     "concurrently": "3.5.0"
+  },
+  "dependencies": {
+    "hoist-non-react-statics": "^2.2.1"
   }
 }

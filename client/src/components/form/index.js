@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import {
     array,
     children,
@@ -111,19 +111,28 @@ export class Form extends Component {
  * @param       {object} props input required properties
  * @constructor
  */
-export function ControlInput(props) {
-    return (
-        <div className="control-input">
-            <label>{props.label}</label>
-            <input
-                className="control-input__input"
-                name={props.name}
-                type={props.type}
-                defaultValue={props.defaultValue}
-                placeholder={props.inputPlaceholder}
-                />
-        </div>
-    )
+export class ControlInput extends PureComponent {
+    render() {
+        const {
+            label,
+            name,
+            type,
+            defaultValue,
+            inputPlaceholder
+        } = this.props
+        return (
+            <div className="control-input">
+                <label>{label}</label>
+                <input
+                    className="control-input__input"
+                    name={name}
+                    type={type}
+                    defaultValue={defaultValue}
+                    placeholder={inputPlaceholder}
+                    />
+            </div>
+        )
+    }
 }
 
 ControlInput.propTypes = {
