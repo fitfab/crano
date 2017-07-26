@@ -13,7 +13,8 @@ export const FHOC2 = (WrappedComponent) => {
         }
 
         componentDidMount() {
-            console.log('mounted', this.props)
+            console.log('mounted', this);
+
         }
 
         render() {

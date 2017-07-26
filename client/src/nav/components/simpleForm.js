@@ -16,7 +16,7 @@ class SimpleForm extends Component {
     render() {
         console.log('SimpleForm', this.props)
         return(
-            <form onChange={this.props.onChange} onSubmit={this.props.onSubmit}>
+            <form ref="test" onChange={this.props.onChange} onSubmit={this.props.onSubmit}>
                 {Field({name: 'lastName', label: 'Last Name:', value: 'Julio'})}
                 <button type="submit">Save</button>
             </form>

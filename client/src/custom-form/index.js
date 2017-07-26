@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
 import {
-    Form,
     ControlInput,
+    ControlRadioOrCheckbox,
     ControlSelect,
-    ControlRadioOrCheckbox } from '../components/form'
+    Form
+} from '../components/form'
+
 import '../components/form/form.css';
 
 let myData = [
@@ -60,16 +62,9 @@ class Customform extends Component {
                         </div>
                     )
                 })}
-                <ControlInput
-                    label="User"
-                    name="userName"
-                    type="text"
-                    defaultValue="Miguel"
-                    placeholder="enter user a name"
-                    />
 
                 <ControlSelect
-                    label="Weekdays"
+                    label="Select a Weekday"
                     name="weekdays"
                     type="select one"
                     options={['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']}
@@ -78,7 +73,7 @@ class Customform extends Component {
                     />
 
                 <ControlRadioOrCheckbox
-                    label="Hobbies"
+                    label="Check all the hobbies you got"
                     name="hobbies"
                     type="checkbox"
                     options={['Renovation', 'Gardening', 'Cooking', 'Dancing', 'Fitness']}
@@ -86,7 +81,7 @@ class Customform extends Component {
                     />
 
                 <ControlRadioOrCheckbox
-                    label="Best Movie"
+                    label="Choose the only one"
                     name="bestMovie"
                     type="radio"
                     options={['You and I', 'Gardening Along', 'Cooking Nowadays', 'The Sun INTI', 'Health']}
