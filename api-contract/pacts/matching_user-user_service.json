@@ -1,0 +1,82 @@
+{
+  "consumer": {
+    "name": "Matching User"
+  },
+  "provider": {
+    "name": "User Service"
+  },
+  "interactions": [
+    {
+      "description": "a request for users",
+      "providerState": "I have a list of users",
+      "request": {
+        "method": "GET",
+        "path": "/api/users",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "userName": "fitfab",
+            "password": "one2one",
+            "fistName": "Miguel",
+            "lastName": "Julio",
+            "email": "mjulio@fitfab.com",
+            "city": "Brooklyn",
+            "state": "NY",
+            "zipcode": 11201
+          },
+          {
+            "userName": "dev4u",
+            "password": "passme",
+            "fistName": "John",
+            "lastName": "Smiht",
+            "email": "jsmith@dev.com",
+            "city": "Queens",
+            "state": "NY",
+            "zipcode": 11365
+          }
+        ]
+      }
+    },
+    {
+      "description": "a request for users with a filter for city",
+      "providerState": "I have a list of Users",
+      "request": {
+        "method": "GET",
+        "path": "/api/users",
+        "query": "city=Brooklyn",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "userName": "fitfab",
+          "password": "one2one",
+          "fistName": "Miguel",
+          "lastName": "Julio",
+          "email": "mjulio@fitfab.com",
+          "city": "Brooklyn",
+          "state": "NY",
+          "zipcode": 11201
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

@@ -9,6 +9,10 @@ export const fetchIt = (url) => {
     return request.get(url).set(headers)
 }
 
+export const saveIt = (url) => {
+    return request.post(url).set(headers)
+}
+
 export const mockProvider = ({port, consumer, provider, PROTOCOL}) => {
         const _provider = Pact({
             consumer,

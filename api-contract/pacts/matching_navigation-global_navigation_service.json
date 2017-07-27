@@ -8,7 +8,7 @@
   "interactions": [
     {
       "description": "a request for Navigation",
-      "provider_state": "I have a list of global Navigation",
+      "providerState": "I have a list of global Navigation",
       "request": {
         "method": "GET",
         "path": "/api/global/navigation",
@@ -24,61 +24,50 @@
         "body": [
           {
             "href": "/",
-            "title": "Artnet.com",
-            "media": "/media/redesign/img/logo_brand.svg"
+            "title": "Artnet.com"
           },
           {
             "href": "/search",
-            "title": "Search",
-            "media": null
+            "title": "Search"
           },
           {
             "href": "/auctions/",
-            "title": "Auctions",
-            "media": null
+            "title": "Auctions"
           },
           {
             "href": "/artists/",
-            "title": "Artists",
-            "media": null
+            "title": "Artists"
           },
           {
             "href": "/auctions/",
-            "title": "Galleries",
-            "media": null
+            "title": "Galleries"
           },
           {
             "href": "/auctions-houses/",
-            "title": "Auctions Houeses",
-            "media": null
+            "title": "Auctions Houeses"
           },
           {
             "href": "/events/",
-            "title": "Events",
-            "media": null
+            "title": "Events"
           },
           {
             "href": "/news/",
-            "title": "News",
-            "media": null
+            "title": "News"
           },
           {
             "href": "/login/",
-            "title": "Log In",
-            "media": null
+            "title": "Log In"
           }
         ]
       }
     },
     {
       "description": "a request for navigation with a filter",
-      "provider_state": "I have a list of navigation",
+      "providerState": "I have a list of navigation",
       "request": {
         "method": "GET",
         "path": "/api/global/navigation",
-        "query": {
-          "from": "today"
-        },
+        "query": "from=today",
         "headers": {
           "Accept": "application/json"
         }
@@ -91,55 +80,46 @@
         "body": [
           {
             "href": "/",
-            "title": "Artnet.com",
-            "media": "/media/redesign/img/logo_brand.svg"
+            "title": "Artnet.com"
           },
           {
             "href": "/search",
-            "title": "Search",
-            "media": null
+            "title": "Search"
           },
           {
             "href": "/auctions/",
-            "title": "Auctions",
-            "media": null
+            "title": "Auctions"
           },
           {
             "href": "/artists/",
-            "title": "Artists",
-            "media": null
+            "title": "Artists"
           },
           {
             "href": "/auctions/",
-            "title": "Galleries",
-            "media": null
+            "title": "Galleries"
           },
           {
             "href": "/auctions-houses/",
-            "title": "Auctions Houeses",
-            "media": null
+            "title": "Auctions Houeses"
           },
           {
             "href": "/events/",
-            "title": "Events",
-            "media": null
+            "title": "Events"
           },
           {
             "href": "/news/",
-            "title": "News",
-            "media": null
+            "title": "News"
           },
           {
             "href": "/login/",
-            "title": "Log In",
-            "media": null
+            "title": "Log In"
           }
         ]
       }
     },
     {
       "description": "a request for Navigation",
-      "provider_state": "I have a list of Navigation",
+      "providerState": "I have a list of Navigation",
       "request": {
         "method": "GET",
         "path": "/api/global/navigation",
@@ -155,55 +135,46 @@
         "body": [
           {
             "href": "/",
-            "title": "Artnet.com",
-            "media": "/media/redesign/img/logo_brand.svg"
+            "title": "Artnet.com"
           },
           {
             "href": "/search",
-            "title": "Search",
-            "media": null
+            "title": "Search"
           },
           {
             "href": "/auctions/",
-            "title": "Auctions",
-            "media": null
+            "title": "Auctions"
           },
           {
             "href": "/artists/",
-            "title": "Artists",
-            "media": null
+            "title": "Artists"
           },
           {
             "href": "/auctions/",
-            "title": "Galleries",
-            "media": null
+            "title": "Galleries"
           },
           {
             "href": "/auctions-houses/",
-            "title": "Auctions Houeses",
-            "media": null
+            "title": "Auctions Houeses"
           },
           {
             "href": "/events/",
-            "title": "Events",
-            "media": null
+            "title": "Events"
           },
           {
             "href": "/news/",
-            "title": "News",
-            "media": null
+            "title": "News"
           },
           {
             "href": "/login/",
-            "title": "Log In",
-            "media": null
+            "title": "Log In"
           }
         ]
       }
     },
     {
       "description": "a request for a navigation that does not exist",
-      "provider_state": "I have a list of Navigation",
+      "providerState": "I have a list of Navigation",
       "request": {
         "method": "GET",
         "path": "/api/global/navigation/2",
@@ -220,6 +191,8 @@
     }
   ],
   "metadata": {
-    "pactSpecificationVersion": "2.0.0"
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
   }
 }

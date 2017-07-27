@@ -1,47 +1,39 @@
 [
     {
         "href":"/",
-        "title": "Artnet.com",
-        "media": "/media/redesign/img/logo_brand.svg"
+        "title": "Artnet.com"
     },
     {
         "href":"/search",
-        "title": "Search",
-        "media": null
+        "title": "Search"
     },
     {
         "href":"/auctions/",
-        "title": "Auctions",
-        "media": null
+        "title": "Auctions"
     },
     {
         "href":"/artists/",
-        "title": "Artists",
-        "media": null
+        "title": "Artists"
     },
     {
         "href":"/auctions/",
-        "title": "Galleries",
-        "media": null
+        "title": "Galleries"
     },
     {
         "href":"/auctions-houses/",
-        "title": "Auctions Houeses",
-        "media": null
+        "title": "Auctions Houeses"
+
     },
     {
         "href":"/events/",
-        "title": "Events",
-        "media": null
+        "title": "Events"
     },
     {
         "href":"/news/",
-        "title": "News",
-        "media": null
+        "title": "News"
     },
     {
         "href":"/login/",
-        "title": "Log In",
-        "media": null
+        "title": "Log In"
     }
 ]

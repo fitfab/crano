@@ -1,0 +1,22 @@
+[
+    {
+        "userName": "fitfab",
+        "password": "one2one",
+        "fistName": "Miguel",
+        "lastName": "Julio",
+        "email": "mjulio@fitfab.com",
+        "city": "Brooklyn",
+        "state": "NY",
+        "zipcode": 11201
+    },
+    {
+        "userName": "dev4u",
+        "password": "passme",
+        "fistName": "John",
+        "lastName": "Smiht",
+        "email": "jsmith@dev.com",
+        "city": "Queens",
+        "state": "NY",
+        "zipcode": 11365
+    }
+]
