@@ -1,0 +1,10 @@
+{
+    "userName": "dev4u",
+    "password": "passme",
+    "fistName": "John",
+    "lastName": "Smiht",
+    "email": "jsmith@dev.com",
+    "city": "Queens",
+    "state": "NY",
+    "zipcode": 11365
+}

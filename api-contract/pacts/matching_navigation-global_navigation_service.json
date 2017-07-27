@@ -8,7 +8,7 @@
   "interactions": [
     {
       "description": "a request for Navigation",
-      "provider_state": "I have a list of global Navigation",
+      "providerState": "I have a list of global Navigation",
       "request": {
         "method": "GET",
         "path": "/api/global/navigation",
@@ -63,13 +63,11 @@
     },
     {
       "description": "a request for navigation with a filter",
-      "provider_state": "I have a list of navigation",
+      "providerState": "I have a list of navigation",
       "request": {
         "method": "GET",
         "path": "/api/global/navigation",
-        "query": {
-          "from": "today"
-        },
+        "query": "from=today",
         "headers": {
           "Accept": "application/json"
         }
@@ -121,7 +119,7 @@
     },
     {
       "description": "a request for Navigation",
-      "provider_state": "I have a list of Navigation",
+      "providerState": "I have a list of Navigation",
       "request": {
         "method": "GET",
         "path": "/api/global/navigation",
@@ -176,7 +174,7 @@
     },
     {
       "description": "a request for a navigation that does not exist",
-      "provider_state": "I have a list of Navigation",
+      "providerState": "I have a list of Navigation",
       "request": {
         "method": "GET",
         "path": "/api/global/navigation/2",
@@ -193,6 +191,8 @@
     }
   ],
   "metadata": {
-    "pactSpecificationVersion": "2.0.0"
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
   }
 }
