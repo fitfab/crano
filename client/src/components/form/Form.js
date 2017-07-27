@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-    children,
     func
 } from 'prop-types';
 
@@ -41,8 +40,7 @@ export default class Form extends Component {
     state = {
     }
 
-    static PropTypes = {
-        children: children,
+    static propTypes = {
         handleSubmit: func.isRequired
     }
 

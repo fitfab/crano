@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import hoistNonReactStatic from 'hoist-non-react-statics'
+
 /**
  * Gets all input fields from the form
  * @param  {Array} list All the children from the form
@@ -38,10 +39,7 @@ function getInputs(list) {
  */
 function FormHOC(WrappedComponent) {
     class Enhanced extends Component {
-        state = {
-
-        }
-
+        state = {}
 
         handleCheckbox(target) {
             const { name, value } = target;
@@ -87,6 +85,7 @@ function FormHOC(WrappedComponent) {
 
 
         componentWillMount() {
+            console.log('this.props.children: ', this.props)
             const inputs = getInputs(this.props.children)
             for (let child in inputs) {
                 let input = inputs[child];
@@ -96,10 +95,10 @@ function FormHOC(WrappedComponent) {
 
         render() {
             return <WrappedComponent
-                    onChange={this.props.handleChange}
-                    onSubmit={this.props.handleClickSubmit}
-                    {...this.state}
-                    {...this.props} />
+                        {...this.props}
+                        onChange={this.props.handleChange}
+                        onSubmit={this.props.handleClickSubmit}
+                        {...this.state} />
         }
     }
     hoistNonReactStatic(Enhanced, WrappedComponent);
