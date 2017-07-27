@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './configure-store.js'
 
-import { fetchIt } from './service'
+import fetchIt from './service'
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 const store = configureStore()
@@ -17,4 +17,4 @@ ReactDOM.render(
         <App fetchIt={fetchIt} />
     </Provider>,
     root);
-registerServiceWorker();
+//registerServiceWorker();

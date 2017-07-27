@@ -1,4 +1,4 @@
-export async function fetchIt(url) {
+export default async function fetchIt(url) {
     const res = await fetch(url);
-    return await res.json()
+    return res.json();
 }
