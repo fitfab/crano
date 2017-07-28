@@ -1,8 +1,8 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import Login from './components/login';
-import * as actionCreators from './action-creators';
+import Login from "./components/login";
+import * as actionCreators from "./action-creators";
 
 /**
  * mapStateToProps -- as the name says it.
@@ -11,9 +11,9 @@ import * as actionCreators from './action-creators';
  * @return {object} props for the component
  */
 function mapStateToProps(state) {
-    return {
-        Login: state.Login,
-    };
+  return {
+    Login: state.Login
+  };
 }
 
 /**
@@ -34,14 +34,14 @@ function mapStateToProps(state) {
  *
  */
 function mapDispatchToProps(dispatch) {
-    // The only use case for bindActionCreators is when
-    // you want to pass some action creators down to a
-    // component that isn’t aware of Redux,
-    // and you don’t want to pass dispatch or
-    // the Redux store to it.
-    return {
-        LoginActions: bindActionCreators(actionCreators, dispatch),
-    };
+  // The only use case for bindActionCreators is when
+  // you want to pass some action creators down to a
+  // component that isn’t aware of Redux,
+  // and you don’t want to pass dispatch or
+  // the Redux store to it.
+  return {
+    LoginActions: bindActionCreators(actionCreators, dispatch)
+  };
 }
 
 /**
@@ -51,7 +51,4 @@ function mapDispatchToProps(dispatch) {
  *
  * https://github.com/rackt/react-redux/blob/master/docs/api.md
  */
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

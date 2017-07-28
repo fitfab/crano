@@ -1,35 +1,35 @@
 import {
-    REQUEST_BEGIN,
-    REQUEST_SUCCESS,
-    REQUEST_FAILED,
-} from './actions-types';
+  REQUEST_BEGIN,
+  REQUEST_SUCCESS,
+  REQUEST_FAILED
+} from "./actions-types";
 
 const initialState = {
-    errors: null,
-    isFetching: false,
-    nav: null,
+  errors: null,
+  isFetching: false,
+  nav: null
 };
 
 export default (state = initialState, action) => {
-    switch (action.type) {
+  switch (action.type) {
     case REQUEST_BEGIN:
-        return {
-            ...state,
-            isFetching: true,
-        };
+      return {
+        ...state,
+        isFetching: true
+      };
     case REQUEST_SUCCESS:
-        return {
-            ...state,
-            isFetching: false,
-            nav: action.payload,
-        };
+      return {
+        ...state,
+        isFetching: false,
+        nav: action.payload
+      };
     case REQUEST_FAILED:
-        return {
-            ...state,
-            isFetching: false,
-            errors: action.payload,
-        };
+      return {
+        ...state,
+        isFetching: false,
+        errors: action.payload
+      };
     default:
-        return state;
-    }
+      return state;
+  }
 };
