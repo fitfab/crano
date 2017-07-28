@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 import {
-    array,
+    arrayOf,
     oneOf,
     string } from 'prop-types';
 
@@ -9,46 +9,44 @@ export default class ControlRadioOrCheckbox extends PureComponent {
         label: string.isRequired,
         name: string.isRequired,
         type: oneOf(['radio', 'checkbox']).isRequired,
-        options: array.isRequired,
-        selectedOptions: array
+        options: arrayOf(string).isRequired,
+        selectedOptions: arrayOf(string),
     }
 
-    _renderLabel(label) {
-        if (!label) {
-            return null
+    renderGroupLabel() {
+        if (!this.props.label) {
+            return null;
         }
-        return(
-            <label>{label}</label>
-        )
+        return (
+            <h3>{this.props.label}</h3>
+        );
     }
 
     render() {
         const {
-            label,
             name,
             type,
             options,
-            selectedOptions
-        } = this.props
+            selectedOptions,
+        } = this.props;
         return (
             <div className="control-radio-checkbox">
-                {this._renderLabel(label)}
+                {this.renderGroupLabel()}
                 <div className="control-input-group">
-                    {options.map(opt => {
-                        return(
-                            <label key={opt} className="check-radio-label">
-                                <input
-                                    className="check-radio-input"
-                                    name={name}
-                                    defaultValue={opt}
-                                    defaultChecked={selectedOptions.indexOf(opt) > -1}
-                                    type={type} /> <span>{opt}</span>
-                            </label>
-                        )
-                    })}
+                    {options.map(opt => (
+                        <label key={opt} htmlFor={name} className="check-radio-label">
+                            <input
+                                className="check-radio-input"
+                                name={name}
+                                defaultValue={opt}
+                                defaultChecked={selectedOptions.indexOf(opt) > -1}
+                                type={type}
+                            /> <span>{opt}</span>
+                        </label>
+                    ))}
                 </div>
 
             </div>
-        )
+        );
     }
 }
