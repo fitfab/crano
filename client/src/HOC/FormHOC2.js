@@ -8,7 +8,7 @@ export const FHOC2 = (WrappedComponent) => {
             console.log('handleChange:', e.target.value)
             const {name, value} = e.target
             this.setState({
-                name: value
+                [name]: value
             })
             console.log('handleChange:', value)
         }
