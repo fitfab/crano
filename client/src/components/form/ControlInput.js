@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import {
     string,
-    oneOf
+    oneOf,
 } from 'prop-types';
 /**
  * ControlInput state maneged by the parent form
@@ -14,37 +14,36 @@ export default class ControlInput extends PureComponent {
         name: string.isRequired,
         type: oneOf(['text', 'number', 'email', 'password']).isRequired,
         defaultValue: string,
-        inputPlaceholder: string
+        inputPlaceholder: string,
     }
 
-    _renderLabel(label) {
-        if (!label) {
-            return null
+    renderLabel() {
+        if (!this.props.label) {
+            return null;
         }
-        return(
-            <label>{label}</label>
-        )
+        return (
+            <label htmlFor={this.props.name}>{this.props.label}</label>
+        );
     }
 
     render() {
         const {
-            label,
             name,
             type,
             defaultValue,
-            inputPlaceholder
-        } = this.props
+            inputPlaceholder,
+        } = this.props;
         return (
             <div className="control-input">
-                {this._renderLabel(label)}
+                {this.renderLabel()}
                 <input
                     className="control-input__input"
                     name={name}
                     type={type}
                     defaultValue={defaultValue}
                     placeholder={inputPlaceholder}
-                    />
+                />
             </div>
-        )
+        );
     }
 }

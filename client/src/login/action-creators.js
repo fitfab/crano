@@ -1,14 +1,14 @@
-import axios from 'axios'
+import axios from 'axios';
 
 import {
     REQUEST_BEGIN,
     REQUEST_SUCCESS,
-    REQUEST_FAILED
-} from './actions-types'
+    REQUEST_FAILED,
+} from './actions-types';
 
 function requestBegin() {
     return {
-        type: REQUEST_BEGIN
+        type: REQUEST_BEGIN,
     };
 }
 
@@ -23,8 +23,7 @@ function requestSuccess(payload) {
 /**
  * thunk creator
  */
-export function loginUser(user) {
-
+export default function loginUser(user) {
     // Thunk middleware knows how to handle functions.
     // It passes the dispatch method as an argument to the function,
     // thus making it able to dispatch actions itself.
@@ -34,18 +33,14 @@ export function loginUser(user) {
         // that the API call is starting.
         dispatch(requestBegin());
 
-        //2nd Ajax: call to the api
+        // 2nd Ajax: call to the api
         axios.post('/api/save', user, { timeout: 3000 })
-        .then((json) => {
-            // Notify that we have received the data
-            dispatch(requestSuccess(json));
-
-        }).catch((json) => {
-            // Notify of any failure from the request
-            dispatch(requestFailed(json));
-
-        });
-
+            .then((json) => {
+                // Notify that we have received the data
+                dispatch(requestSuccess(json));
+            }).catch((json) => {
+                // Notify of any failure from the request
+                dispatch(requestFailed(json));
+            });
     };
-
 }

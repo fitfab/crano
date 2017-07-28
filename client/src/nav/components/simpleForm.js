@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
+/* eslint react/prop-types: "off" */
+import React, { PureComponent } from 'react';
 
-import {FHOC2} from '../../HOC/FormHOC2'
+import FHOC2 from '../../HOC/FormHOC2';
 
-function Field({name, label ,value}) {
+function Field({ name, label, value }) {
     return (
-        <label>
+        <label htmlFor={name}>
             <span>{label}</span>
             <input type="text" name={name} defaultValue={value} />
         </label>
-    )
+    );
 }
 
-class SimpleForm extends Component {
-
+class SimpleForm extends PureComponent {
     render() {
-        console.log('SimpleForm', this.props)
-        return(
-            <form ref="test" onChange={this.props.onChange} onSubmit={this.props.onSubmit}>
-                {Field({name: 'lastName', label: 'Last Name:', value: 'Julio'})}
+        return (
+            <form onChange={this.props.onChange} onSubmit={this.props.onSubmit}>
+                {Field({ name: 'lastName', label: 'Last Name:', value: 'Julio' })}
                 <button type="submit">Save</button>
             </form>
-        )
+        );
     }
 }
 
-export default FHOC2(SimpleForm)
+export default FHOC2(SimpleForm);

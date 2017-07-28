@@ -1,0 +1,20 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "globals": {
+        "fetch": true,
+        "it": true,
+        "jest": true,
+        "document": true,
+        "window": true
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "react/jsx-indent": "off",
+        "react/jsx-indent-props": "off",
+        "react/require-default-props": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "class-methods-use-this": "off",
+        "react/forbid-prop-types": "off"
+    }
+}
