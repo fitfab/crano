@@ -6,12 +6,14 @@ import LoginReducer from './login/reducer';
 import NavReducer from './nav/reducer';
 
 
+
 // create store that has the redux-thunk middleware enabled
 
 const createStoreWidthMiddleware = applyMiddleware(
     thunk,
     // add as much as needed middlewares
 )(createStore);
+
 
 
 // create store with combineReducer
