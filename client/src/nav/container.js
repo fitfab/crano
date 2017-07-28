@@ -1,8 +1,8 @@
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import Nav from './components/nav'
-import * as actionCreators from './action-creators'
+import Nav from './components/nav';
+import * as actionCreators from './action-creators';
 
 /**
  * mapStateToProps -- as the name says it.
@@ -34,14 +34,13 @@ function mapStateToProps(state) {
  *
  */
 function mapDispatchToProps(dispatch) {
-
-  // The only use case for bindActionCreators is when
-  // you want to pass some action creators down to a
-  // component that isn’t aware of Redux,
-  // and you don’t want to pass dispatch or
-  // the Redux store to it.
+    // The only use case for bindActionCreators is when
+    // you want to pass some action creators down to a
+    // component that isn’t aware of Redux,
+    // and you don’t want to pass dispatch or
+    // the Redux store to it.
     return {
-        NavActions: bindActionCreators(actionCreators, dispatch)
+        NavActions: bindActionCreators(actionCreators, dispatch),
     };
 }
 
@@ -54,5 +53,5 @@ function mapDispatchToProps(dispatch) {
  */
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(Nav);
