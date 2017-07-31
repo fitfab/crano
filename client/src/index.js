@@ -13,9 +13,9 @@ const store = configureStore();
 const root = document.getElementById("root");
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App fetchIt={fetchIt} />
-  </Provider>,
-  root
+    <Provider store={store}>
+        <App fetchIt={fetchIt} />
+    </Provider>,
+    root
 );
 // registerServiceWorker();

@@ -11,9 +11,9 @@ import * as actionCreators from "./action-creators";
  * @return {object} props for the component
  */
 function mapStateToProps(state) {
-  return {
-    Nav: state.Nav
-  };
+    return {
+        Nav: state.Nav
+    };
 }
 
 /**
@@ -34,14 +34,14 @@ function mapStateToProps(state) {
  *
  */
 function mapDispatchToProps(dispatch) {
-  // The only use case for bindActionCreators is when
-  // you want to pass some action creators down to a
-  // component that isn’t aware of Redux,
-  // and you don’t want to pass dispatch or
-  // the Redux store to it.
-  return {
-    NavActions: bindActionCreators(actionCreators, dispatch)
-  };
+    // The only use case for bindActionCreators is when
+    // you want to pass some action creators down to a
+    // component that isn’t aware of Redux,
+    // and you don’t want to pass dispatch or
+    // the Redux store to it.
+    return {
+        NavActions: bindActionCreators(actionCreators, dispatch)
+    };
 }
 
 /**

@@ -32,7 +32,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint:js": "./node_modules/.bin/eslint --fix ./src",
-    "pretty": "./node_modules/.bin/prettier --list-different --write 'src/**/*.js'"
+    "pretty": "./node_modules/.bin/prettier --tab-width 4 --write 'src/**/*.js'"
   },
   "proxy": "http://localhost:3001"
 }
