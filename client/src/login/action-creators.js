@@ -6,24 +6,24 @@ import {
     REQUEST_FAILED,
 } from './actions-types';
 
-function requestBegin() {
+export function requestBegin() {
     return {
         type: REQUEST_BEGIN,
     };
 }
 
-function requestFailed(payload) {
+export function requestFailed(payload) {
     return { payload, type: REQUEST_FAILED };
 }
 
-function requestSuccess(payload) {
+export function requestSuccess(payload) {
     return { payload, type: REQUEST_SUCCESS };
 }
 
 /**
  * thunk creator
  */
-export default function loginUser(user) {
+export function loginUser(user) {
     // Thunk middleware knows how to handle functions.
     // It passes the dispatch method as an argument to the function,
     // thus making it able to dispatch actions itself.
