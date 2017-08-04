@@ -1,8 +1,10 @@
 /*  eslint no-shadow: "off" */
 import React, { Component } from 'react';
 import {
+    arrayOf,
     func,
-    children,
+    oneOfType,
+    node,
 } from 'prop-types';
 
 /**
@@ -38,7 +40,10 @@ function getInputs(list) {
 export default class Form extends Component {
     static propTypes = {
         handleSubmit: func.isRequired,
-        children,
+        children: oneOfType([
+            arrayOf(node),
+            node,
+        ]),
     }
 
     state = {}
